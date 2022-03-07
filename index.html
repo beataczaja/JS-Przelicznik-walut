@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Przelicznik walut</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="bd">
+    <div class="bg">
+      <nav class="navLogo">
+        <div class="img-money"></div>
+        <div class="textLogo"><span>PRZELICZNIK</span> <span>WALUT</span></div>
+      </nav>
+      <div>
+        <form id="formResult">
+          <input placeholder="Kwota" name="newAmount" />
+          <select id="selectList"></select>
+          <button id="getCurrencies" type="submit" class="btnResult">
+            Przelicz
+          </button>
+          <span id="selectResult"></span>
+        </form>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
