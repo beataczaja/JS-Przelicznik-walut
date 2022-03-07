@@ -1,21 +1,26 @@
-//helper function
+/* 1. helper function
+---------------*/
 const ce = (tagName) => document.createElement(tagName);
 const qs = (selector) => document.querySelector(selector);
 
-let currentRate = "";
-
-//Node
+/* 2. DOM Nodes
+------------*/
 const formDOM = qs("#formResult");
 
-/* Updates */
+/* 3. MODEL - dane aplikacji
+-------------------------*/
+let currentRate = "";
+
+/* 4. VIEW - funkcje render'ujące View (czyli tworzące DOM)
+--------------------------------------------------------*/
 const getRatesList = () => {
   const url = "https://api.nbp.pl/api/exchangerates/tables/A/?format=json";
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      const filterOptions = data[0].rates.filter(({ code, mid }) =>
+      const filterOptions = data[0].rates.filter(({ code }) =>
         ["EUR", "USD", "CHF"].includes(code)
-      ); //wybieram do listy trzy konkretne valuty
+      ); //{ code } - destrukturyzacja data >> wybieram do select listy trzy konkretne waluty
       const selectItem = () => {
         const selectSpan = qs("#selectList");
         filterOptions.forEach(({ code, mid }) => {
@@ -36,13 +41,16 @@ const getRatesList = () => {
 };
 getRatesList();
 
+/* 5. UPDATE - funkcje zmieniające Model
+-------------------------------------*/
 const resultFn = (newAmountValue, currentRate) => {
   const res = newAmountValue.amount * currentRate;
   const resSpan = qs("#selectResult");
   resSpan.textContent = "to " + res.toFixed(2) + " PLN";
 };
 
-/*  Eventy */
+/* 6. Eventy
+---------*/
 formDOM.addEventListener("submit", (e) => {
   e.preventDefault();
 
