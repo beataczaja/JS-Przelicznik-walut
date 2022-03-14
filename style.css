@@ -15,6 +15,20 @@ body {
   padding-left: 20px;
 }
 
+.ligth-shadow {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(250, 245, 245, 0.7);
+  /* z-index: 1; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .bd {
   display: flex;
   flex-direction: row;
@@ -55,4 +69,8 @@ body {
   color: #f8f5e1;
   background-color: #a92627;
   border: 1px solid #a92627;
+}
+
+.dis-n {
+  display: none;
 }

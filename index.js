@@ -14,6 +14,7 @@ let currentRate = "";
 /* 4. VIEW - funkcje render'ujące View (czyli tworzące DOM)
 --------------------------------------------------------*/
 const getRatesList = () => {
+  const loadingGif = qs("#loading-gif");
   const url = "https://api.nbp.pl/api/exchangerates/tables/A/?format=json";
   fetch(url)
     .then((response) => response.json())
@@ -29,6 +30,7 @@ const getRatesList = () => {
           optionDOM.textContent = code;
           selectSpan.appendChild(optionDOM);
         });
+        loadingGif.classList.add("dis-n");
         currentRate = filterOptions[0].mid;
         console.log(currentRate);
         selectSpan.addEventListener("change", (e) => {
