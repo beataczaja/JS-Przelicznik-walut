@@ -30,7 +30,7 @@ const getRatesList = () => {
           optionDOM.textContent = code;
           selectSpan.appendChild(optionDOM);
         });
-        loadingGif.classList.add("dis-n");
+        loadingGif.classList.add("dis-n"); //loader podczas pobierania danych ze strony
         currentRate = filterOptions[0].mid;
         console.log(currentRate);
         selectSpan.addEventListener("change", (e) => {
